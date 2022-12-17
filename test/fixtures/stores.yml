@@ -4,10 +4,8 @@ one:
   name: MyString
   type: 
   location: MyString
-  menu: one
 
 two:
   name: MyString
   type: 
   location: MyString
-  menu: two

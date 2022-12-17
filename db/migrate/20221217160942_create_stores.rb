@@ -4,7 +4,6 @@ class CreateStores < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :type
       t.string :location
-      t.references :menu, null: false, foreign_key: true
 
       t.timestamps
     end
