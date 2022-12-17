@@ -2,10 +2,8 @@
 
 one:
   version: MyString
-  category: one
-  item: one
+  store: one
 
 two:
   version: MyString
-  category: two
-  item: two
+  store: two
