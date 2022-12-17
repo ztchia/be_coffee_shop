@@ -1,6 +1,6 @@
-class CurrentUserController < ApplicationController
+class CurrentUsersController < ApplicationController
   before_action :authenticate_user!
-  def index
+  def show
     render json: current_user, status: :ok
   end
 end
