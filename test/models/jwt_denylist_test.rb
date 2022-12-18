@@ -1,3 +1,11 @@
+# == Schema Information
+#
+# Table name: jwt_denylist
+#
+#  id  :bigint           not null, primary key
+#  jti :string           not null
+#  exp :datetime         not null
+#
 require "test_helper"
 
 class JwtDenylistTest < ActiveSupport::TestCase

@@ -1,0 +1,28 @@
+# == Schema Information
+#
+# Table name: items
+#
+#  id         :bigint           not null, primary key
+#  name       :string           not null
+#  cost       :float
+#  price      :float            not null
+#  profit     :float
+#  category   :integer
+#  menu_id    :bigint           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  name: MyString
+  cost: 1.5
+  price: 1.5
+  profit: 1.5
+  menu: one
+
+two:
+  name: MyString
+  cost: 1.5
+  price: 1.5
+  profit: 1.5
+  menu: two

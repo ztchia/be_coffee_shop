@@ -49,5 +49,8 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
   gem "byebug"
+  gem 'annotate'
 end
 
+
+gem "ruby-lsp", "~> 0.3.7", :group => :development
