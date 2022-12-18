@@ -30,10 +30,24 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def register_success
+    create_customer if user_params[:role] == 'customer'
     render json: {
       status: {code: 200, message: 'Signed up sucessfully.'},
       data: UserSerializer.new(resource).serializable_hash[:data][:attributes]
     }
+  end
+
+  def user_params
+    params.require(:user).permit(:name, :email, :contact, :address, :role)
+  end
+
+  def create_customer
+    customer = current_user.build_customer
+    customer.name = user_params[:name]
+    customer.email = user_params[:email]
+    customer.contact = user_params[:contact]
+    customer.address = user_params[:address]
+    customer.save!
   end
 
   def register_failed
