@@ -15,7 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_17_162502) do
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.string "name"
+    t.integer "kind", null: false
     t.bigint "menu_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -23,15 +23,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_17_162502) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.float "cost"
-    t.float "price"
+    t.float "price", null: false
     t.float "profit"
+    t.integer "category"
     t.bigint "menu_id", null: false
-    t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["menu_id"], name: "index_items_on_menu_id"
   end
 
@@ -42,7 +41,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_17_162502) do
   end
 
   create_table "menus", force: :cascade do |t|
-    t.string "version"
+    t.string "version", null: false
     t.bigint "store_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -85,7 +84,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_17_162502) do
   end
 
   add_foreign_key "categories", "menus"
-  add_foreign_key "items", "categories"
   add_foreign_key "items", "menus"
   add_foreign_key "menus", "stores"
   add_foreign_key "taxes", "items"

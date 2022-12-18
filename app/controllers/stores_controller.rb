@@ -1,5 +1,5 @@
 class StoresController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: :create
 
   def create
     store = Store.create!(store_params)

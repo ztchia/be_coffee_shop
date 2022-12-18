@@ -1,21 +1,20 @@
 class MenusController < ApplicationController
-  before_action :authenticate_user!, except: :show
+  before_action :authenticate_user!, only: :create
+  before_action :set_store
 
   def create
-    @store = Store.find(store_params[:id])
     menu = @store.menus.create!(menu_params)
     render json: { data: { menu: menu } }, status: :ok
   end
 
   def index
-    menus = Menu.all
-    render json: { data: { menus: menus } }, status: :ok
+    render json: { data: { menus: @store.menus } }, status: :ok
   end
 
   private
 
-  def store_params
-    params.require(:store).permit(:id)
+  def set_store
+    @store = Store.find(params[:store_id])
   end
 
   def menu_params
