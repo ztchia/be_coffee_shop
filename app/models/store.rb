@@ -11,6 +11,7 @@
 #
 class Store < ApplicationRecord
   has_many :menus, dependent: :destroy
+  has_many :orders, dependent: :destroy
   validates :name, :kind, :location, presence: true
   validates :name, uniqueness: { scope: %i[location kind] }
 
