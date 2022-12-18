@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: orders
+#
+#  id          :bigint           not null, primary key
+#  status      :integer          default("initial")
+#  details     :jsonb
+#  store_id    :bigint           not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  customer_id :bigint           not null
+#
+
+one:
+  status: 1
+  store: one
+  item: one
+  user: one
+
+two:
+  status: 1
+  store: two
+  item: two
+  user: two
