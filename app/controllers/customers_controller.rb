@@ -22,7 +22,6 @@ class CustomersController < ApplicationController
   private
 
   def set_customer
-    byebug
     @customer = current_user.customer
   end
 
