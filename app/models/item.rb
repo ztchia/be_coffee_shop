@@ -13,7 +13,6 @@
 #  updated_at :datetime         not null
 #
 class Item < ApplicationRecord
-  has_many :taxes
   belongs_to :menu
   before_validation :calculate_profit
   validates :name, :price, :cost, :profit, :category, presence: true
