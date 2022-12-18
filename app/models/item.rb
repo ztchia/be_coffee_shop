@@ -15,6 +15,7 @@
 class Item < ApplicationRecord
   belongs_to :menu
   before_validation :calculate_profit
+  before_save :capitalize_name
   validates :name, :price, :cost, :profit, :category, presence: true
   validates :name, :category, presence: true, uniqueness: { scope: :menu_id }
   enum category: {
@@ -29,5 +30,9 @@ class Item < ApplicationRecord
 
   def calculate_profit
     self.profit = self.price - self.cost
+  end
+
+  def capitalize_name
+    self.name.capitalize!
   end
 end
