@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: payments
+#
+#  id          :bigint           not null, primary key
+#  amount      :float
+#  currency    :string           default("USD")
+#  status      :integer          default("paid")
+#  order_id    :bigint           not null
+#  customer_id :bigint           not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+one:
+  amount: 1.5
+  currency: MyString
+  status: 1
+  order: one
+  customer: one
+
+two:
+  amount: 1.5
+  currency: MyString
+  status: 1
+  order: two
+  customer: two

@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: notifications
+#
+#  id          :bigint           not null, primary key
+#  message     :string
+#  sent        :boolean
+#  order_id    :bigint           not null
+#  customer_id :bigint           not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+one:
+  message: MyString
+  sent: false
+  order: one
+  customer: one
+
+two:
+  message: MyString
+  sent: false
+  order: two
+  customer: two

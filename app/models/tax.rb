@@ -8,10 +8,12 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-require "test_helper"
-
-class TaxTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+class Tax < ApplicationRecord
+  validates :type, uniqueness: true
+  enum kind: {
+    sst: 100,
+    gst: 200,
+    service_charge: 800,
+    tax_free: 900
+  }
 end

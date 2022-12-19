@@ -17,7 +17,8 @@ class Item < ApplicationRecord
   before_validation :calculate_profit
   before_save :capitalize_name
   validates :name, :price, :cost, :profit, :category, presence: true
-  validates :name, :category, presence: true, uniqueness: { scope: :menu_id }
+  validates :name, presence: true, uniqueness: { scope: :menu_id }
+  validates :price, comparison: { equal_to: 0 }, if: :free?
   enum category: {
          food: 100,
          beverage: 200,
