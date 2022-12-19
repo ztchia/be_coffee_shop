@@ -5,7 +5,7 @@
 #  id          :bigint           not null, primary key
 #  amount      :float
 #  currency    :string           default("USD")
-#  status      :integer          default(0)
+#  status      :integer          default("paid")
 #  order_id    :bigint           not null
 #  customer_id :bigint           not null
 #  created_at  :datetime         not null

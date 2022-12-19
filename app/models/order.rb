@@ -3,18 +3,20 @@
 # Table name: orders
 #
 #  id          :bigint           not null, primary key
-#  status      :integer          default("initial")
+#  status      :integer          default("order_received")
 #  details     :jsonb
 #  store_id    :bigint           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  customer_id :bigint           not null
+#  tax_rates   :jsonb
 #
 class Order < ApplicationRecord
   belongs_to :store
   belongs_to :customer
   has_many :taxes
   has_many :payments
+  has_many :notifications
   before_create :add_tax_rates
 
   enum status: {

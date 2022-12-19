@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'notifications/create'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   devise_for :users,
              path: "",
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
     end
     resources :orders, only: %i[create show update] do
       resources :payments, only: %i[create show]
+      resources :notifications, only: :create
     end
   end
   resource :customers, only: %i[create show update] 

@@ -3,10 +3,8 @@
 # Table name: taxes
 #
 #  id         :bigint           not null, primary key
-#  name       :string
-#  type       :integer
+#  kind       :integer
 #  rate       :float            not null
-#  order_id   :bigint           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

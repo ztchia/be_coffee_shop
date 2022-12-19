@@ -13,5 +13,6 @@
 #
 class Customer < ApplicationRecord
   belongs_to :user
+  has_many :notifications
   validates :name, :email, presence: true
 end
