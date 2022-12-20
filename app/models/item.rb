@@ -13,6 +13,8 @@
 #  updated_at :datetime         not null
 #
 class Item < ApplicationRecord
+  has_many :combo_items, dependent: :destroy
+  has_many :combos, through: :combo_items
   belongs_to :menu
   before_validation :calculate_profit
   before_save :capitalize_name
